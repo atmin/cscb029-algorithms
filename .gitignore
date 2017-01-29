@@ -3,3 +3,4 @@ gen
 merge_sort
 dynamic_programming
 longest_common_ordered_subset
+longest_path
