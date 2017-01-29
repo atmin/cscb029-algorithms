@@ -5,21 +5,25 @@
 > ./gen 42 60 | ./merge_sort
 */
 
-#define MAXN 1000
+#define MAXN 10000
 
-int array[MAXN], array_length = 0;
+int array[MAXN], N = 0;
 int scratch[MAXN];
 
 void input() {
   for (int number; scanf("%d", &number) == 1;) {
-    array[array_length++] = number;
+    array[N++] = number;
   }
 }
 
 void output() {
-  for (int i = 0; i < array_length; i++) {
-    printf("%d\n", array[i]);
+  for (int i = 0; i < N; i++) {
+    printf("%3d  ", array[i]);
+    if ((i + 1) % 10 == 0) {
+      printf("\n");
+    }
   }
+  printf("\n\n");
 }
 
 void merge_sort(int left, int right) {
@@ -53,7 +57,6 @@ void merge_sort(int left, int right) {
 int main() {
   input();
   output();
-  printf("------------\n");
-  merge_sort(0, array_length - 1);
+  merge_sort(0, N - 1);
   output();
 }
